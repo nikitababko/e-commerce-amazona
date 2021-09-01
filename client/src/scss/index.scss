@@ -1,3 +1,5 @@
+@import './utils//variables.scss';
+
 * {
   box-sizing: border-box;
 }
@@ -10,6 +12,15 @@ body {
   margin: 0;
   height: 100vh;
   font: 1.6rem Helvetica, Arial;
+}
+
+a {
+  color: $black;
+  text-decoration: none;
+
+  &:hover {
+    color: $orange;
+  }
 }
 
 .grid-container {
@@ -39,7 +50,7 @@ body {
     text-decoration: none;
 
     &:hover {
-      color: #f08040;
+      color: $orange;
     }
   }
 
@@ -58,3 +69,5 @@ body {
   background-color: #203040;
   color: #fff;
 }
+
+@import './components/products.scss';

@@ -11,6 +11,12 @@ body {
   height: 100vh;
   font: 1.6rem Helvetica, Arial; }
 
+a {
+  color: #000;
+  text-decoration: none; }
+  a:hover {
+    color: #f08040; }
+
 .grid-container {
   display: grid;
   grid-template-areas: 'header' 'main' 'footer';
@@ -53,5 +59,48 @@ body {
           align-items: center;
   background-color: #203040;
   color: #fff; }
+
+.products {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0;
+  margin: 0;
+  list-style-type: none; }
+  .products li {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 30rem;
+            flex: 0 1 30rem;
+    margin: 1rem;
+    margin-bottom: 0;
+    height: 42rem;
+    border-top: 0.2rem #e0e0e0 solid; }
+    .products li .product {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: column;
+              flex-direction: column;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+      height: 100%; }
+      .products li .product img {
+        max-height: 26rem;
+        max-width: 22rem;
+        margin-top: 2rem; }
+      .products li .product-name {
+        line-height: 2.2rem; }
+      .products li .product-brand {
+        font-size: 1.2rem;
+        color: #808080; }
+      .products li .product-price {
+        font-size: 2rem; }
 
 /*# sourceMappingURL=index.css.map */
