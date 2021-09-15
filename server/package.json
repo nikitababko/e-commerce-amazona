@@ -1,5 +1,9 @@
 {
   "name": "server",
+  "author": {
+    "name": "Nikita Babko",
+    "email": "niki.babko@gmail.com"
+  },
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -7,7 +11,6 @@
     "dev": "nodemon server.js"
   },
   "keywords": [],
-  "author": "",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
