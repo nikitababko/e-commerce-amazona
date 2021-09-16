@@ -17,6 +17,19 @@ a {
   a:hover {
     color: #f08040; }
 
+button {
+  padding: 1rem;
+  font: 1.6rem helvetica;
+  border: 0.1rem #808080 solid;
+  border-radius: 0.5rem; }
+  button:hover {
+    border: 0.1rem #404040 solid; }
+  button.primary {
+    background-color: #f0c040; }
+
+.fw {
+  width: 100%; }
+
 .grid-container {
   display: grid;
   grid-template-areas: 'header' 'main' 'footer';
@@ -102,6 +115,45 @@ a {
         color: #808080; }
       .products li .product-price {
         font-size: 2rem; }
+
+.content {
+  padding: 1rem; }
+  .content .details {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: start;
+        -ms-flex-align: start;
+            align-items: flex-start;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap; }
+    .content .details-image {
+      -webkit-box-flex: 2;
+          -ms-flex: 2 1 60rem;
+              flex: 2 1 60rem; }
+      .content .details-image img {
+        min-width: 60rem;
+        width: 100%; }
+    .content .details-info, .content .details-action {
+      -webkit-box-flex: 1;
+          -ms-flex: 1 1 30rem;
+              flex: 1 1 30rem; }
+      .content .details-info ul, .content .details-action ul {
+        padding: 0;
+        list-style-type: none; }
+    .content .details-info h1 {
+      font-size: 2rem;
+      margin: 0; }
+    .content .details-info li, .content .details-action li {
+      margin-bottom: 1rem; }
+    .content .details-action {
+      padding: 1rem;
+      border: 0.1rem #808080 solid;
+      border-radius: 0.5rem;
+      background-color: #f8f8f8; }
 
 .rating {
   font-size: 1.8rem;
