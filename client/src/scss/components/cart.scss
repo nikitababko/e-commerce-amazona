@@ -1,0 +1,65 @@
+.cart {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+
+  &-list {
+    flex: 3 1 60rem;
+
+    &-container {
+      padding: 1rem;
+      list-style-type: none;
+
+      li {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: 1rem;
+        margin-bottom: 1rem;
+        border-bottom: 0.1rem #c0c0c0 solid;
+
+        &:first-child {
+          align-items: flex-end;
+        }
+      }
+
+      img {
+        max-width: 10rem;
+        max-height: 10rem;
+      }
+    }
+
+    h3 {
+      margin: 0;
+    }
+
+    button,
+    select {
+      padding: 0.5rem;
+      font-size: 1.3rem;
+    }
+  }
+
+  &-image {
+    flex: 1 1;
+  }
+
+  &-name {
+    flex: 8 1;
+
+    & > div {
+      padding: 1rem;
+    }
+  }
+
+  &-price {
+    flex: 1 1;
+    text-align: right;
+  }
+
+  &-action {
+    flex: 1 1 20rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    background-color: #f0f0f0;
+  }
+}
