@@ -24,11 +24,17 @@ a {
 }
 
 button {
+  cursor: pointer;
+}
+
+input,
+button {
   padding: 1rem;
   font: 1.6rem helvetica;
   border: 0.1rem #808080 solid;
   border-radius: 0.5rem;
 
+  input:hover,
   &:hover {
     border: 0.1rem #404040 solid;
   }
@@ -101,3 +107,4 @@ button {
 @import './components/product.scss';
 @import './components/rating.scss';
 @import './components/cart.scss';
+@import './components/signin.scss';
