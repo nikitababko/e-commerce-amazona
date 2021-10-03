@@ -8,9 +8,12 @@ import cors from 'cors';
 
 import connectToDB from './core/database';
 import routes from './routes';
+import nameHandler from './middleware/nameHandler';
 
 const app = express();
 app.use(cors());
+app.use(express.json());
+app.use(nameHandler);
 
 // Data base
 connectToDB();
