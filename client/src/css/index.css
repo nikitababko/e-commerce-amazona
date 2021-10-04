@@ -50,7 +50,7 @@ button {
   grid-template-rows: 5rem 1fr 5rem;
   height: 100%; }
 
-.header {
+header {
   grid-area: header;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -64,13 +64,13 @@ button {
   padding: 0.5rem;
   background-color: #203040;
   color: #fff; }
-  .header a {
+  header a {
     color: #fff;
     font-weight: bold;
     text-decoration: none; }
-    .header a:hover {
+    header a:hover {
       color: #f08040; }
-  .header .brand a {
+  header .brand a {
     font-size: 3rem; }
 
 .footer {
