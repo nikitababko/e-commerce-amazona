@@ -103,6 +103,7 @@ header {
   color: #fff;
 }
 
+@import './components/overlay.scss';
 @import './components/products.scss';
 @import './components/product.scss';
 @import './components/rating.scss';

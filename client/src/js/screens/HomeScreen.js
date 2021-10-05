@@ -1,8 +1,12 @@
 import Rating from '../components/Rating.js';
+import { hideLoading, showLoading } from '../utils.js';
 
 const HomeScreen = {
   render: async () => {
+    showLoading();
     const res = await axios.get('http://localhost:5000/api/products');
+    hideLoading();
+
     if (!res || res.statusText !== 'OK') {
       return `<div>Error on getting data</div>`;
     }
