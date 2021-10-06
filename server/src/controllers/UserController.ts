@@ -24,24 +24,30 @@ class UserController {
   }
 
   static async signin(req: Request, res: Response) {
-    const { email, password } = req.body;
+    try {
+      const { email, password } = req.body;
 
-    const signinUser = await UserModel.findOne({
-      email,
-      password,
-    });
-
-    if (!signinUser) {
-      res.status(401).send({
-        message: 'Invalid email or password',
+      const signinUser = await UserModel.findOne({
+        email,
+        password,
       });
-    } else {
-      res.send({
-        _id: signinUser._id,
-        name: signinUser.name,
-        email: signinUser.email,
-        isAdmin: signinUser.isAdmin,
-        token: generateToken(signinUser),
+
+      if (!signinUser) {
+        res.status(401).send({
+          message: 'Invalid email or password',
+        });
+      } else {
+        res.send({
+          _id: signinUser._id,
+          name: signinUser.name,
+          email: signinUser.email,
+          isAdmin: signinUser.isAdmin,
+          token: generateToken(signinUser),
+        });
+      }
+    } catch (error: any) {
+      return res.status(500).json({
+        message: error.message,
       });
     }
   }
