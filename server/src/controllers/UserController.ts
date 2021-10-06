@@ -16,9 +16,9 @@ class UserController {
       const createdUser = await user.save();
 
       res.send(createdUser);
-    } catch (error) {
-      res.json({
-        msg: 'Some error!',
+    } catch (error: any) {
+      return res.status(500).json({
+        message: error.message,
       });
     }
   }
@@ -33,7 +33,7 @@ class UserController {
 
     if (!signinUser) {
       res.status(401).send({
-        message: 'Invalid Email or Password',
+        message: 'Invalid email or password',
       });
     } else {
       res.send({
@@ -42,6 +42,38 @@ class UserController {
         email: signinUser.email,
         isAdmin: signinUser.isAdmin,
         token: generateToken(signinUser),
+      });
+    }
+  }
+
+  static async register(req: Request, res: Response) {
+    try {
+      const { name, email, password } = req.body;
+
+      const user = new UserModel({
+        name,
+        email,
+        password,
+      });
+
+      const createdUser = await user.save();
+
+      if (!createdUser) {
+        res.status(401).send({
+          message: 'Invalid user data',
+        });
+      } else {
+        res.send({
+          _id: createdUser._id,
+          name: createdUser.name,
+          email: createdUser.email,
+          isAdmin: createdUser.isAdmin,
+          token: generateToken(createdUser),
+        });
+      }
+    } catch (error: any) {
+      return res.status(500).json({
+        message: error.message,
       });
     }
   }
