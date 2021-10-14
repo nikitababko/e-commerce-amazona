@@ -83,6 +83,38 @@ class UserController {
       });
     }
   }
+
+  static async update(req: Request, res: Response) {
+    try {
+      const user = await UserModel.findById(req.params.id);
+
+      if (!user) {
+        res.status(404).send({
+          message: 'User not found',
+        });
+      } else {
+        const { name, email, password } = req.body;
+
+        user.name = name || user.name;
+        user.email = email || user.email;
+        user.password = password || user.password;
+
+        const updatedUser = await user.save();
+
+        res.send({
+          _id: updatedUser._id,
+          name: updatedUser.name,
+          email: updatedUser.email,
+          isAdmin: updatedUser.isAdmin,
+          token: generateToken(updatedUser),
+        });
+      }
+    } catch (error: any) {
+      return res.status(500).json({
+        message: error.message,
+      });
+    }
+  }
 }
 
 export default UserController;

@@ -1,5 +1,6 @@
 import { Document } from 'mongoose';
 import { Secret } from 'jsonwebtoken';
+import { Request } from 'express';
 
 export interface IUser extends Document {
   name: string;
@@ -7,4 +8,8 @@ export interface IUser extends Document {
   password: string;
   isAdmin: boolean;
   token?: Secret;
+}
+
+export interface IReqAuth extends Request {
+  user?: IUser;
 }
