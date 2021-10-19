@@ -1,5 +1,7 @@
-import { getCartItems, getShipping } from '../localStorage.js';
+import { cleanCart, getCartItems, getShipping } from '../localStorage.js';
 import CheckoutSteps from '../components/CheckoutSteps.js';
+import { hideLoading, showLoading, showMessage } from '../utils.js';
+import { createOrder } from '../api.js';
 
 const convertCartToOrder = () => {
   const orderItems = getCartItems();
@@ -34,7 +36,24 @@ const convertCartToOrder = () => {
 };
 
 const PlaceOrderScreen = {
-  after_render: () => {},
+  after_render: () => {
+    document
+      .getElementById('placeorder-button')
+      .addEventListener('click', async () => {
+        const order = convertCartToOrder();
+        showLoading();
+
+        const data = await createOrder(order);
+        hideLoading();
+
+        if (data.error) {
+          showMessage(data.error);
+        } else {
+          cleanCart();
+          document.location.hash = `/order/${data.order._id}`;
+        }
+      });
+  },
 
   render: () => {
     const {
@@ -134,7 +153,7 @@ const PlaceOrderScreen = {
 
               <li>
 
-              <button class="primary fw">Place order</button>
+              <button id="placeorder-button" class="primary fw">Place order</button>
             </ul>
           </div>
         </div>

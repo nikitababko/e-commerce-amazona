@@ -1,0 +1,11 @@
+.rating {
+  font-size: 1.8rem;
+  color: #ffc000;
+
+  span {
+    &:last-child {
+      font-size: 1.4rem;
+      color: #444444;
+    }
+  }
+}
