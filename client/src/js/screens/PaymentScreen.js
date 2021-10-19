@@ -1,5 +1,5 @@
 import CheckoutSteps from '../components/CheckoutSteps.js';
-import { getUserInfo, getPayment, setPayment } from '../localStorage.js';
+import { getUserInfo, setPayment } from '../localStorage.js';
 
 const PaymentScreen = {
   after_render: () => {

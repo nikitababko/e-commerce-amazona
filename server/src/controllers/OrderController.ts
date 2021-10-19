@@ -38,6 +38,23 @@ class OrderController {
       });
     }
   }
+
+  static async getOrder(req: any, res: Response) {
+    try {
+      const order = await OrderModel.findById(req.params.id);
+      if (order) {
+        res.json(order);
+      } else {
+        res.status(404).json({
+          message: 'Order not found',
+        });
+      }
+    } catch (error: any) {
+      return res.status(500).json({
+        message: error.message,
+      });
+    }
+  }
 }
 
 export default OrderController;
