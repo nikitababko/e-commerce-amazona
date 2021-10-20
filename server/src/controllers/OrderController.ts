@@ -81,9 +81,7 @@ class OrderController {
 
   static async getMineOrder(req: any, res: Response) {
     try {
-      console.log('orders');
       const orders = await OrderModel.find({ user: req.user._id });
-      console.log(orders);
 
       res.json(orders);
     } catch (error: any) {
