@@ -10,7 +10,7 @@ class OrderController {
         shipping,
         payment,
         itemsPrice,
-        taxtPrice,
+        taxPrice,
         shippingPrice,
         totalPrice,
       } = req.body;
@@ -21,7 +21,7 @@ class OrderController {
         shipping,
         payment,
         itemsPrice,
-        taxtPrice,
+        taxPrice,
         shippingPrice,
         totalPrice,
       });
@@ -48,6 +48,29 @@ class OrderController {
         res.status(404).json({
           message: 'Order not found',
         });
+      }
+    } catch (error: any) {
+      return res.status(500).json({
+        message: error.message,
+      });
+    }
+  }
+
+  static async putOrder(req: any, res: Response) {
+    try {
+      const order = await OrderModel.findById(req.params.id);
+      if (order) {
+        order.isPaid = true;
+        order.paidAt = Date.now();
+        order.payment.paymentResult = {
+          payerID: req.body.payerID,
+          paymentID: req.body.paymentID,
+          orderID: req.body.orderID,
+        };
+        const updatedOrder = await order.save();
+        res.send({ message: 'Order Paid', order: updatedOrder });
+      } else {
+        res.status(404).send({ message: 'Order Not Found.' });
       }
     } catch (error: any) {
       return res.status(500).json({

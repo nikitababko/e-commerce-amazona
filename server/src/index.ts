@@ -3,7 +3,7 @@ dotenv.config({
   path: 'src/config/variables.env',
 });
 
-import express from 'express';
+import express, { Request, Response } from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 
@@ -24,6 +24,11 @@ connectToDB();
 app.use('/api', routes.userRouter);
 app.use('/api', routes.productRouter);
 app.use('/api', routes.orderRouter);
+app.get('/api/paypal/clientId', (req: Request, res: Response) => {
+  res.send({
+    clientId: process.env.PAYPAL_CLIENT_ID,
+  });
+});
 
 // Server
 const PORT: number = 5000;
