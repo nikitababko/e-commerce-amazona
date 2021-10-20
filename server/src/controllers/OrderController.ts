@@ -56,7 +56,7 @@ class OrderController {
     }
   }
 
-  static async putOrder(req: any, res: Response) {
+  static async updateOrder(req: any, res: Response) {
     try {
       const order = await OrderModel.findById(req.params.id);
       if (order) {
@@ -72,6 +72,20 @@ class OrderController {
       } else {
         res.status(404).send({ message: 'Order Not Found.' });
       }
+    } catch (error: any) {
+      return res.status(500).json({
+        message: error.message,
+      });
+    }
+  }
+
+  static async getMineOrder(req: any, res: Response) {
+    try {
+      console.log('orders');
+      const orders = await OrderModel.find({ user: req.user._id });
+      console.log(orders);
+
+      res.json(orders);
     } catch (error: any) {
       return res.status(500).json({
         message: error.message,

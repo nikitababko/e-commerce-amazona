@@ -385,4 +385,32 @@ header {
       font-weight: bold;
       color: #c04000; }
 
+.profile {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start; }
+  .profile-info {
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 20rem;
+            flex: 1 1 20rem; }
+  .profile-orders {
+    -webkit-box-flex: 3;
+        -ms-flex: 3 1 60rem;
+            flex: 3 1 60rem;
+    margin-left: 1rem; }
+
+table {
+  width: 100%; }
+  table th {
+    text-align: left; }
+  table tbody > tr:nth-child(odd) {
+    background-color: #f0f0f0; }
+  table td {
+    padding: 0.5rem; }
+
 /*# sourceMappingURL=index.css.map */
