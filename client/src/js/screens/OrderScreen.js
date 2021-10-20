@@ -1,4 +1,10 @@
-import { hideLoading, parseRequestUrl, showLoading } from '../utils.js';
+import {
+  hideLoading,
+  parseRequestUrl,
+  rerender,
+  showLoading,
+  showMessage,
+} from '../utils.js';
 import { getOrder, getPaypalClientId, payOrder } from '../api.js';
 
 const addPaypalSdk = async (totalPrice) => {
