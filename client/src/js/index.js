@@ -10,6 +10,7 @@ import ShippingScreen from './screens/ShippingScreen.js';
 import PaymentScreen from './screens/PaymentScreen.js';
 import PlaceOrderScreen from './screens/PlaceOrderScreen.js';
 import OrderScreen from './screens/OrderScreen.js';
+import DashboardScreen from './screens/DashboardScreen.js';
 
 import { hideLoading, parseRequestUrl, showLoading } from './utils.js';
 
@@ -26,6 +27,7 @@ const routes = {
   '/payment': PaymentScreen,
   '/placeorder': PlaceOrderScreen,
   '/order/:id': OrderScreen,
+  '/dashboard': DashboardScreen,
 };
 
 const router = async () => {
